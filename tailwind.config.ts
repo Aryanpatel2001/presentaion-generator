@@ -10,7 +10,7 @@ export default {
   theme: {
     extend: {
       colors: {
-        "creative-ai-gradient":
+        "create-ai-gradient":
           "var(--Project-Color-Styles-CreativeAI-Gradient,#F55C7A)",
         background: {
           DEFAULT: "hsl(var(--background))",
