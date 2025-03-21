@@ -1,3 +1,4 @@
+"use client";
 import { Project } from "@prisma/client";
 import React from "react";
 import { motion } from "framer-motion";
