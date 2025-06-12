@@ -1,3 +1,5 @@
+import React from "react";
+
 export interface Slide {
   id: string;
   slideName: string;
@@ -74,4 +76,37 @@ export interface OutlineCard {
   title: string;
   id: string;
   order: number;
+}
+
+export interface LayoutSlides {
+  slideName: string;
+  content: ContentItem;
+  className?: string;
+  type: string;
+}
+
+export interface Layout {
+  name: string;
+  icon: React.FC;
+  type: string;
+  component: LayoutSlides;
+  layoutType: string;
+}
+
+export interface LayoutGroup {
+  name: string;
+  layouts: Layout[];
+}
+
+export interface ComponentGroup {
+  name: string;
+  components: Component[];
+}
+
+interface Component {
+  name: string;
+  icon: string;
+  type: string;
+  component: ContentItem;
+  componentType: string;
 }
