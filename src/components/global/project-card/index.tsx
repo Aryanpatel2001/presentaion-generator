@@ -110,10 +110,10 @@ const ProjectCard = ({
         className="relative aspect-[16/10] overflow-hidden rounded-lg cursor-pointer"
         onClick={handleNavigation}
       >
-        {/* <ThumbnailPreview
+        <ThumbnailPreview
           theme={theme}
           slide={JSON.parse(JSON.stringify(slideData))?.[0]}
-        /> */}
+        />
       </div>
       <div className="w-full">
         <div className="space-y-1">
@@ -130,7 +130,7 @@ const ProjectCard = ({
             {isDeleted ? (
               <AlertDialogBox
                 description="This will recover your project and restore your data"
-                className="bg-green-500 text-white dark:bg-green-600 hover:bg-green-600 dark:bg-green-700"
+                className="bg-green-500 text-white dark:bg-green-600 hover:bg-green-600 "
                 loading={loading}
                 open={open}
                 onClick={handleRecover}
@@ -148,7 +148,7 @@ const ProjectCard = ({
             ) : (
               <AlertDialogBox
                 description="This will delete your project and send to trash."
-                className="bg-red-500 text-white dark:bg-red-600 hover:bg-red-600 dark:bg-red-700"
+                className="bg-red-500 text-white dark:bg-red-600 hover:bg-red-600 "
                 loading={loading}
                 open={open}
                 onClick={handleDelete}
