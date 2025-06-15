@@ -349,7 +349,7 @@ const ContentRenderer: React.FC<MasterRecursiveComponentProps> = React.memo(
 
       case "image":
         return (
-          <motion.div {...animationProps} className="w-full h-full">
+          <motion.div {...animationProps} className="w-full h-full ">
             <CustomImage
               src={content.content as string}
               alt={content.alt || "image"}

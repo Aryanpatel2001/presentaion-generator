@@ -5,7 +5,6 @@ import UpperInfoBar from "@/components/global/upper-info-bar";
 import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
 
 import { redirect } from "next/navigation";
-import React from "react";
 
 type Props = { children: React.ReactNode };
 

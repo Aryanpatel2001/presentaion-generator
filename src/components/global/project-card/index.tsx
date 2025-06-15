@@ -101,8 +101,8 @@ const ProjectCard = ({
   };
   return (
     <motion.div
-      className={`group w-full flex flex-col gap-y-3 rounded-xl p-3 translate-colors ${
-        !isDeleted && "hover:bg-muted/50"
+      className={`group w-full flex flex-col gap-y-3 rounded-xl p-3 translate-colors border-2 ${
+        !isDeleted && "hover:bg-muted/50 "
       }`}
       variants={itemVariants}
     >
