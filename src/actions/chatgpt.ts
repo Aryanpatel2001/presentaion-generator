@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 // "use server";
 // import { client } from "@/lib/prisma";
 // import { ContentItem, ContentType, Slide } from "@/lib/types";
@@ -742,8 +743,7 @@ import OpenAI from "openai";
 import { v4 as uuidv4 } from "uuid";
 import FormData from "form-data";
 
-// const token = "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";
-const token = "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";
+const token = process.env.SECRET_TOKEN;
 
 const openai = new OpenAI({
   baseURL: "https://models.inference.ai.azure.com",
@@ -839,7 +839,7 @@ const generateImageUrl = async (prompt: string): Promise<string> => {
 
     Example Use Cases: Business presentations, educational slides, professional designs.
   `;
-  const apiKey = "sk-uRzEMgo6DcHqQy7Vr1SsNRuS7dvdn3tIq5qTHB3mq29Fzzh7";
+  const apiKey = process.env.OPENAI_API_KEY;
 
   try {
     const form = new FormData();
@@ -1195,419 +1195,419 @@ export const generateLayouts = async (projectId: string, theme: string) => {
   }
 };
 
-const existingLayouts = [
-  {
-    id: uuidv4(),
-    slideName: "Blank card",
-    type: "blank-card",
-    className: "p-8 mx-auto flex justify-center items-center min-h-[200px]",
-    content: {
-      id: uuidv4(),
-      type: "column" as ContentType,
-      name: "Column",
-      content: [
-        {
-          id: uuidv4(),
-          type: "title" as ContentType,
-          name: "Title",
-          content: "",
-          placeholder: "Untitled Card",
-        },
-      ],
-    },
-  },
+// const existingLayouts = [
+//   {
+//     id: uuidv4(),
+//     slideName: "Blank card",
+//     type: "blank-card",
+//     className: "p-8 mx-auto flex justify-center items-center min-h-[200px]",
+//     content: {
+//       id: uuidv4(),
+//       type: "column" as ContentType,
+//       name: "Column",
+//       content: [
+//         {
+//           id: uuidv4(),
+//           type: "title" as ContentType,
+//           name: "Title",
+//           content: "",
+//           placeholder: "Untitled Card",
+//         },
+//       ],
+//     },
+//   },
 
-  {
-    id: uuidv4(),
-    slideName: "Accent left",
-    type: "accentLeft",
-    className: "min-h-[300px]",
-    content: {
-      id: uuidv4(),
-      type: "column" as ContentType,
-      name: "Column",
-      restrictDropTo: true,
-      content: [
-        {
-          id: uuidv4(),
-          type: "resizable-column" as ContentType,
-          name: "Resizable column",
-          restrictToDrop: true,
-          content: [
-            {
-              id: uuidv4(),
-              type: "image" as ContentType,
-              name: "Image",
-              content:
-                "https://plus.unsplash.com/premium_photo-1729004379397-ece899804701?q=80&w=2767&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-              alt: "Title",
-            },
-            {
-              id: uuidv4(),
-              type: "column" as ContentType,
-              name: "Column",
-              content: [
-                {
-                  id: uuidv4(),
-                  type: "heading1" as ContentType,
-                  name: "Heading1",
-                  content: "",
-                  placeholder: "Heading1",
-                },
-                {
-                  id: uuidv4(),
-                  type: "paragraph" as ContentType,
-                  name: "Paragraph",
-                  content: "",
-                  placeholder: "start typing here",
-                },
-              ],
-              className: "w-full h-full p-8 flex justify-center items-center",
-              placeholder: "Heading1",
-            },
-          ],
-        },
-      ],
-    },
-  },
+//   {
+//     id: uuidv4(),
+//     slideName: "Accent left",
+//     type: "accentLeft",
+//     className: "min-h-[300px]",
+//     content: {
+//       id: uuidv4(),
+//       type: "column" as ContentType,
+//       name: "Column",
+//       restrictDropTo: true,
+//       content: [
+//         {
+//           id: uuidv4(),
+//           type: "resizable-column" as ContentType,
+//           name: "Resizable column",
+//           restrictToDrop: true,
+//           content: [
+//             {
+//               id: uuidv4(),
+//               type: "image" as ContentType,
+//               name: "Image",
+//               content:
+//                 "https://plus.unsplash.com/premium_photo-1729004379397-ece899804701?q=80&w=2767&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+//               alt: "Title",
+//             },
+//             {
+//               id: uuidv4(),
+//               type: "column" as ContentType,
+//               name: "Column",
+//               content: [
+//                 {
+//                   id: uuidv4(),
+//                   type: "heading1" as ContentType,
+//                   name: "Heading1",
+//                   content: "",
+//                   placeholder: "Heading1",
+//                 },
+//                 {
+//                   id: uuidv4(),
+//                   type: "paragraph" as ContentType,
+//                   name: "Paragraph",
+//                   content: "",
+//                   placeholder: "start typing here",
+//                 },
+//               ],
+//               className: "w-full h-full p-8 flex justify-center items-center",
+//               placeholder: "Heading1",
+//             },
+//           ],
+//         },
+//       ],
+//     },
+//   },
 
-  {
-    id: uuidv4(),
-    slideName: "Accent Right",
-    type: "accentRight",
-    className: "min-h-[300px]",
-    content: {
-      id: uuidv4(),
-      type: "column" as ContentType,
-      name: "Column",
-      content: [
-        {
-          id: uuidv4(),
-          type: "resizable-column" as ContentType,
-          name: "Resizable column",
-          restrictToDrop: true,
-          content: [
-            {
-              id: uuidv4(),
-              type: "column" as ContentType,
-              name: "Column",
-              content: [
-                {
-                  id: uuidv4(),
-                  type: "heading1" as ContentType,
-                  name: "Heading1",
-                  content: "",
-                  placeholder: "Heading1",
-                },
-                {
-                  id: uuidv4(),
-                  type: "paragraph" as ContentType,
-                  name: "Paragraph",
-                  content: "",
-                  placeholder: "start typing here",
-                },
-              ],
-              className: "w-full h-full p-8 flex justify-center items-center",
-              placeholder: "Heading1",
-            },
-            {
-              id: uuidv4(),
-              type: "image" as ContentType,
-              name: "Image",
-              restrictToDrop: true,
-              content:
-                "https://plus.unsplash.com/premium_photo-1729004379397-ece899804701?q=80&w=2767&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-              alt: "Title",
-            },
-          ],
-        },
-      ],
-    },
-  },
+//   {
+//     id: uuidv4(),
+//     slideName: "Accent Right",
+//     type: "accentRight",
+//     className: "min-h-[300px]",
+//     content: {
+//       id: uuidv4(),
+//       type: "column" as ContentType,
+//       name: "Column",
+//       content: [
+//         {
+//           id: uuidv4(),
+//           type: "resizable-column" as ContentType,
+//           name: "Resizable column",
+//           restrictToDrop: true,
+//           content: [
+//             {
+//               id: uuidv4(),
+//               type: "column" as ContentType,
+//               name: "Column",
+//               content: [
+//                 {
+//                   id: uuidv4(),
+//                   type: "heading1" as ContentType,
+//                   name: "Heading1",
+//                   content: "",
+//                   placeholder: "Heading1",
+//                 },
+//                 {
+//                   id: uuidv4(),
+//                   type: "paragraph" as ContentType,
+//                   name: "Paragraph",
+//                   content: "",
+//                   placeholder: "start typing here",
+//                 },
+//               ],
+//               className: "w-full h-full p-8 flex justify-center items-center",
+//               placeholder: "Heading1",
+//             },
+//             {
+//               id: uuidv4(),
+//               type: "image" as ContentType,
+//               name: "Image",
+//               restrictToDrop: true,
+//               content:
+//                 "https://plus.unsplash.com/premium_photo-1729004379397-ece899804701?q=80&w=2767&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+//               alt: "Title",
+//             },
+//           ],
+//         },
+//       ],
+//     },
+//   },
 
-  {
-    id: uuidv4(),
-    slideName: "Image and text",
-    type: "imageAndText",
-    className: "min-h-[200px] p-8 mx-auto flex justify-center items-center",
-    content: {
-      id: uuidv4(),
-      type: "column" as ContentType,
-      name: "Column",
-      content: [
-        {
-          id: uuidv4(),
-          type: "resizable-column" as ContentType,
-          name: "Image and text",
-          className: "border",
-          content: [
-            {
-              id: uuidv4(),
-              type: "column" as ContentType,
-              name: "Column",
-              content: [
-                {
-                  id: uuidv4(),
-                  type: "image" as ContentType,
-                  name: "Image",
-                  className: "p-3",
-                  content:
-                    "https://plus.unsplash.com/premium_photo-1729004379397-ece899804701?q=80&w=2767&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-                  alt: "Title",
-                },
-              ],
-            },
-            {
-              id: uuidv4(),
-              type: "column" as ContentType,
-              name: "Column",
-              content: [
-                {
-                  id: uuidv4(),
-                  type: "heading1" as ContentType,
-                  name: "Heading1",
-                  content: "",
-                  placeholder: "Heading1",
-                },
-                {
-                  id: uuidv4(),
-                  type: "paragraph" as ContentType,
-                  name: "Paragraph",
-                  content: "",
-                  placeholder: "start typing here",
-                },
-              ],
-              className: "w-full h-full p-8 flex justify-center items-center",
-              placeholder: "Heading1",
-            },
-          ],
-        },
-      ],
-    },
-  },
+//   {
+//     id: uuidv4(),
+//     slideName: "Image and text",
+//     type: "imageAndText",
+//     className: "min-h-[200px] p-8 mx-auto flex justify-center items-center",
+//     content: {
+//       id: uuidv4(),
+//       type: "column" as ContentType,
+//       name: "Column",
+//       content: [
+//         {
+//           id: uuidv4(),
+//           type: "resizable-column" as ContentType,
+//           name: "Image and text",
+//           className: "border",
+//           content: [
+//             {
+//               id: uuidv4(),
+//               type: "column" as ContentType,
+//               name: "Column",
+//               content: [
+//                 {
+//                   id: uuidv4(),
+//                   type: "image" as ContentType,
+//                   name: "Image",
+//                   className: "p-3",
+//                   content:
+//                     "https://plus.unsplash.com/premium_photo-1729004379397-ece899804701?q=80&w=2767&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+//                   alt: "Title",
+//                 },
+//               ],
+//             },
+//             {
+//               id: uuidv4(),
+//               type: "column" as ContentType,
+//               name: "Column",
+//               content: [
+//                 {
+//                   id: uuidv4(),
+//                   type: "heading1" as ContentType,
+//                   name: "Heading1",
+//                   content: "",
+//                   placeholder: "Heading1",
+//                 },
+//                 {
+//                   id: uuidv4(),
+//                   type: "paragraph" as ContentType,
+//                   name: "Paragraph",
+//                   content: "",
+//                   placeholder: "start typing here",
+//                 },
+//               ],
+//               className: "w-full h-full p-8 flex justify-center items-center",
+//               placeholder: "Heading1",
+//             },
+//           ],
+//         },
+//       ],
+//     },
+//   },
 
-  {
-    id: uuidv4(),
-    slideName: "Text and image",
-    type: "textAndImage",
-    className: "min-h-[200px] p-8 mx-auto flex justify-center items-center",
-    content: {
-      id: uuidv4(),
-      type: "column" as ContentType,
-      name: "Column",
-      content: [
-        {
-          id: uuidv4(),
-          type: "resizable-column" as ContentType,
-          name: "Text and image",
-          className: "border",
-          content: [
-            {
-              id: uuidv4(),
-              type: "column" as ContentType,
-              name: "",
-              content: [
-                {
-                  id: uuidv4(),
-                  type: "heading1" as ContentType,
-                  name: "Heading1",
-                  content: "",
-                  placeholder: "Heading1",
-                },
-                {
-                  id: uuidv4(),
-                  type: "paragraph" as ContentType,
-                  name: "Paragraph",
-                  content: "",
-                  placeholder: "start typing here",
-                },
-              ],
-              className: "w-full h-full p-8 flex justify-center items-center",
-              placeholder: "Heading1",
-            },
-            {
-              id: uuidv4(),
-              type: "column" as ContentType,
-              name: "Column",
-              content: [
-                {
-                  id: uuidv4(),
-                  type: "image" as ContentType,
-                  name: "Image",
-                  className: "p-3",
-                  content:
-                    "https://plus.unsplash.com/premium_photo-1729004379397-ece899804701?q=80&w=2767&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-                  alt: "Title",
-                },
-              ],
-            },
-          ],
-        },
-      ],
-    },
-  },
+//   {
+//     id: uuidv4(),
+//     slideName: "Text and image",
+//     type: "textAndImage",
+//     className: "min-h-[200px] p-8 mx-auto flex justify-center items-center",
+//     content: {
+//       id: uuidv4(),
+//       type: "column" as ContentType,
+//       name: "Column",
+//       content: [
+//         {
+//           id: uuidv4(),
+//           type: "resizable-column" as ContentType,
+//           name: "Text and image",
+//           className: "border",
+//           content: [
+//             {
+//               id: uuidv4(),
+//               type: "column" as ContentType,
+//               name: "",
+//               content: [
+//                 {
+//                   id: uuidv4(),
+//                   type: "heading1" as ContentType,
+//                   name: "Heading1",
+//                   content: "",
+//                   placeholder: "Heading1",
+//                 },
+//                 {
+//                   id: uuidv4(),
+//                   type: "paragraph" as ContentType,
+//                   name: "Paragraph",
+//                   content: "",
+//                   placeholder: "start typing here",
+//                 },
+//               ],
+//               className: "w-full h-full p-8 flex justify-center items-center",
+//               placeholder: "Heading1",
+//             },
+//             {
+//               id: uuidv4(),
+//               type: "column" as ContentType,
+//               name: "Column",
+//               content: [
+//                 {
+//                   id: uuidv4(),
+//                   type: "image" as ContentType,
+//                   name: "Image",
+//                   className: "p-3",
+//                   content:
+//                     "https://plus.unsplash.com/premium_photo-1729004379397-ece899804701?q=80&w=2767&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+//                   alt: "Title",
+//                 },
+//               ],
+//             },
+//           ],
+//         },
+//       ],
+//     },
+//   },
 
-  {
-    id: uuidv4(),
-    slideName: "Two columns",
-    type: "twoColumns",
-    className: "p-4 mx-auto flex justify-center items-center",
-    content: {
-      id: uuidv4(),
-      type: "column" as ContentType,
-      name: "Column",
-      content: [
-        {
-          id: uuidv4(),
-          type: "title" as ContentType,
-          name: "Title",
-          content: "",
-          placeholder: "Untitled Card",
-        },
-        {
-          id: uuidv4(),
-          type: "resizable-column" as ContentType,
-          name: "Text and image",
-          className: "border",
-          content: [
-            {
-              id: uuidv4(),
-              type: "paragraph" as ContentType,
-              name: "Paragraph",
-              content: "",
-              placeholder: "Start typing...",
-            },
-            {
-              id: uuidv4(),
-              type: "paragraph" as ContentType,
-              name: "Paragraph",
-              content: "",
-              placeholder: "Start typing...",
-            },
-          ],
-        },
-      ],
-    },
-  },
+//   {
+//     id: uuidv4(),
+//     slideName: "Two columns",
+//     type: "twoColumns",
+//     className: "p-4 mx-auto flex justify-center items-center",
+//     content: {
+//       id: uuidv4(),
+//       type: "column" as ContentType,
+//       name: "Column",
+//       content: [
+//         {
+//           id: uuidv4(),
+//           type: "title" as ContentType,
+//           name: "Title",
+//           content: "",
+//           placeholder: "Untitled Card",
+//         },
+//         {
+//           id: uuidv4(),
+//           type: "resizable-column" as ContentType,
+//           name: "Text and image",
+//           className: "border",
+//           content: [
+//             {
+//               id: uuidv4(),
+//               type: "paragraph" as ContentType,
+//               name: "Paragraph",
+//               content: "",
+//               placeholder: "Start typing...",
+//             },
+//             {
+//               id: uuidv4(),
+//               type: "paragraph" as ContentType,
+//               name: "Paragraph",
+//               content: "",
+//               placeholder: "Start typing...",
+//             },
+//           ],
+//         },
+//       ],
+//     },
+//   },
 
-  {
-    id: uuidv4(),
-    slideName: "Two columns with headings",
-    type: "twoColumnsWithHeadings",
-    className: "p-4 mx-auto flex justify-center items-center",
-    content: {
-      id: uuidv4(),
-      type: "column" as ContentType,
-      name: "Column",
-      content: [
-        {
-          id: uuidv4(),
-          type: "title" as ContentType,
-          name: "Title",
-          content: "",
-          placeholder: "Untitled Card",
-        },
-        {
-          id: uuidv4(),
-          type: "resizable-column" as ContentType,
-          name: "Text and image",
-          className: "border",
-          content: [
-            {
-              id: uuidv4(),
-              type: "column" as ContentType,
-              name: "Column",
-              content: [
-                {
-                  id: uuidv4(),
-                  type: "heading3" as ContentType,
-                  name: "Heading3",
-                  content: "",
-                  placeholder: "Heading 3",
-                },
-                {
-                  id: uuidv4(),
-                  type: "paragraph" as ContentType,
-                  name: "Paragraph",
-                  content: "",
-                  placeholder: "Start typing...",
-                },
-              ],
-            },
-            {
-              id: uuidv4(),
-              type: "column" as ContentType,
-              name: "Column",
-              content: [
-                {
-                  id: uuidv4(),
-                  type: "heading3" as ContentType,
-                  name: "Heading3",
-                  content: "",
-                  placeholder: "Heading 3",
-                },
-                {
-                  id: uuidv4(),
-                  type: "paragraph" as ContentType,
-                  name: "Paragraph",
-                  content: "",
-                  placeholder: "Start typing...",
-                },
-              ],
-            },
-          ],
-        },
-      ],
-    },
-  },
+//   {
+//     id: uuidv4(),
+//     slideName: "Two columns with headings",
+//     type: "twoColumnsWithHeadings",
+//     className: "p-4 mx-auto flex justify-center items-center",
+//     content: {
+//       id: uuidv4(),
+//       type: "column" as ContentType,
+//       name: "Column",
+//       content: [
+//         {
+//           id: uuidv4(),
+//           type: "title" as ContentType,
+//           name: "Title",
+//           content: "",
+//           placeholder: "Untitled Card",
+//         },
+//         {
+//           id: uuidv4(),
+//           type: "resizable-column" as ContentType,
+//           name: "Text and image",
+//           className: "border",
+//           content: [
+//             {
+//               id: uuidv4(),
+//               type: "column" as ContentType,
+//               name: "Column",
+//               content: [
+//                 {
+//                   id: uuidv4(),
+//                   type: "heading3" as ContentType,
+//                   name: "Heading3",
+//                   content: "",
+//                   placeholder: "Heading 3",
+//                 },
+//                 {
+//                   id: uuidv4(),
+//                   type: "paragraph" as ContentType,
+//                   name: "Paragraph",
+//                   content: "",
+//                   placeholder: "Start typing...",
+//                 },
+//               ],
+//             },
+//             {
+//               id: uuidv4(),
+//               type: "column" as ContentType,
+//               name: "Column",
+//               content: [
+//                 {
+//                   id: uuidv4(),
+//                   type: "heading3" as ContentType,
+//                   name: "Heading3",
+//                   content: "",
+//                   placeholder: "Heading 3",
+//                 },
+//                 {
+//                   id: uuidv4(),
+//                   type: "paragraph" as ContentType,
+//                   name: "Paragraph",
+//                   content: "",
+//                   placeholder: "Start typing...",
+//                 },
+//               ],
+//             },
+//           ],
+//         },
+//       ],
+//     },
+//   },
 
-  {
-    id: uuidv4(),
-    slideName: "Three column",
-    type: "threeColumns",
-    className: "p-4 mx-auto flex justify-center items-center",
-    content: {
-      id: uuidv4(),
-      type: "column" as ContentType,
-      name: "Column",
-      content: [
-        {
-          id: uuidv4(),
-          type: "title" as ContentType,
-          name: "Title",
-          content: "",
-          placeholder: "Untitled Card",
-        },
-        {
-          id: uuidv4(),
-          type: "resizable-column" as ContentType,
-          name: "Text and image",
-          className: "border",
-          content: [
-            {
-              id: uuidv4(),
-              type: "paragraph" as ContentType,
-              name: "",
-              content: "",
-              placeholder: "Start typing...",
-            },
-            {
-              id: uuidv4(),
-              type: "paragraph" as ContentType,
-              name: "",
-              content: "",
-              placeholder: "Start typing...",
-            },
-            {
-              id: uuidv4(),
-              type: "paragraph" as ContentType,
-              name: "",
-              content: "",
-              placeholder: "Start typing...",
-            },
-          ],
-        },
-      ],
-    },
-  },
-];
+//   {
+//     id: uuidv4(),
+//     slideName: "Three column",
+//     type: "threeColumns",
+//     className: "p-4 mx-auto flex justify-center items-center",
+//     content: {
+//       id: uuidv4(),
+//       type: "column" as ContentType,
+//       name: "Column",
+//       content: [
+//         {
+//           id: uuidv4(),
+//           type: "title" as ContentType,
+//           name: "Title",
+//           content: "",
+//           placeholder: "Untitled Card",
+//         },
+//         {
+//           id: uuidv4(),
+//           type: "resizable-column" as ContentType,
+//           name: "Text and image",
+//           className: "border",
+//           content: [
+//             {
+//               id: uuidv4(),
+//               type: "paragraph" as ContentType,
+//               name: "",
+//               content: "",
+//               placeholder: "Start typing...",
+//             },
+//             {
+//               id: uuidv4(),
+//               type: "paragraph" as ContentType,
+//               name: "",
+//               content: "",
+//               placeholder: "Start typing...",
+//             },
+//             {
+//               id: uuidv4(),
+//               type: "paragraph" as ContentType,
+//               name: "",
+//               content: "",
+//               placeholder: "Start typing...",
+//             },
+//           ],
+//         },
+//       ],
+//     },
+//   },
+// ];

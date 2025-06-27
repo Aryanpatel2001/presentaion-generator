@@ -1,3 +1,4 @@
+export const dynamic = "force-dynamic";
 import React, { Suspense } from "react";
 import CreatePageSkeleton from "./_components/CreatePage/CreatePageSkeleton";
 import RenderPage from "./_components/RenderPage";

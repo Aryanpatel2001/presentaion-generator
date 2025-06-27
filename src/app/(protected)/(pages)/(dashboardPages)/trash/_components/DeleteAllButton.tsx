@@ -1,7 +1,7 @@
 "use client";
 import { deleteAllProjects } from "@/actions/project";
 import AlertDialogBox from "@/components/global/alert-dialog";
-import Projects from "@/components/global/projects";
+// import Projects from "@/components/global/projects";
 import { Button } from "@/components/ui/button";
 import { Project } from "@prisma/client";
 import { Trash } from "lucide-react";

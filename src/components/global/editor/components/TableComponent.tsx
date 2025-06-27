@@ -147,7 +147,6 @@ const TableComponent = ({
       </ResizablePanelGroup>
     </div>
   );
-  r;
 };
 
 export default TableComponent;
